@@ -4,7 +4,7 @@ from datetime import datetime
 
 #open csv data  
 infile =open('sitka_weather_2018_simple.csv','r')
-csvfile =csv .reader(infile,delimiter=',')  # breaks into a list
+csvfile =csv .reader(infile,delimiter=',')  
 
 #skip the first row 
 header_row = next(csvfile)
