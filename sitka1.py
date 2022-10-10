@@ -1,6 +1,6 @@
 import csv
-infile =open('sitka_weather_07-2018_simple.csv','r')
-csvfile =csv .reader(infile,delimiter=',') 
+infile = open('sitka_weather_07-2018_simple.csv','r')
+csvfile =csv.reader(infile,delimiter=',') 
 header_row = next(csvfile)
 
 #print(header_row)

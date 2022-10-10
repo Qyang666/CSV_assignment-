@@ -79,15 +79,13 @@ plt.subplot(2,1,1)
 plt.plot(dates1,highs1,c="red")
 plt.plot(dates1,lows1,c="blue")
 
-title1 = name1
-plt.title(title1, fontsize = 16)
+plt.title(name1, fontsize = 16)
 plt.fill_between(dates1,highs1,lows1, facecolor="blue", alpha=0.1)
 plt.subplot(2,1,2)
 plt.plot(dates2,highs2,c="red")
 plt.plot(dates2,lows2,c="blue")
 
-title2 = name2
-plt.title(title2, fontsize = 16)
+plt.title(name2, fontsize = 16)
 plt.fill_between(dates2,highs2,lows2, facecolor="blue", alpha=0.1)
 plt.xlabel(" ",fontsize=16)
 plt.ylabel("Temperature (F)",fontsize=16)
