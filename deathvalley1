@@ -1,0 +1,61 @@
+#import models 
+import csv
+from datetime import datetime
+
+#open file 
+infile =open('death_valley_2018_simple.csv','r')
+csvfile =csv.reader(infile,delimiter=',')  
+
+##skip the column name 
+header_row = next(csvfile)
+print(header_row)
+
+for index, column_header in enumerate(header_row):
+    print(index,column_header)
+
+#create three empty lists 
+highs =[]
+dates = []
+lows = []
+
+#load data into lists
+for record in csvfile:
+    try:
+         thedate =datetime.strptime(record[2],'%Y-%m-%d')
+         high =int(record[4])
+         low = int(record[5])
+
+    except ValueError:
+        print(f"Missing data for {thedate}")
+
+    else:
+        highs.append(high)
+        lows.append(low)
+        dates.append(thedate)
+
+# print(highs)
+print(highs)
+
+# print(lows)
+print(lows)
+
+# print(dates)
+print(dates)
+
+#load the matplotlib moduke
+import matplotlib.pyplot as plt
+fig = plt.figure()  
+
+
+#plot 
+plt.plot(dates,highs,c="red")
+plt.plot(dates,lows,c="blue")
+plt.fill_between(dates,highs,lows,facecolor='blue',alpha=0.1)
+plt.title("Daily High temperature- 2018\nDeath Valley",fontsize=16)
+plt.xlabel("July 2018",fontsize=16)
+plt.ylabel("Temperature (F)",fontsize=16)
+plt.tick_params(axis="both",which ="major",labelsize=16)
+
+#just for dates to format it into readable format or else its will be collapsed
+fig.autofmt_xdate()
+plt.show()
